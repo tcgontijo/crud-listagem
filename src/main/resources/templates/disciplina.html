@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/layout">
+<div th:fragment="conteudo">
+	<div class="container mt-3">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr class="thead-dark">
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Professor</th>
+					<th>Periodo</th>
+					<th>Código Classroom</th>
+				<tr>
+			</thead>
+			<tbody>
+				<tr th:each="disciplina:${lista}" th:object="${disciplina}">
+					<td th:text="*{id}"></td>
+					<td th:text="*{nome}"></td>
+					<td th:text="*{professor}"></td>
+					<td th:text="*{periodo}"></td>
+					<td th:text="*{codigo}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</html>
