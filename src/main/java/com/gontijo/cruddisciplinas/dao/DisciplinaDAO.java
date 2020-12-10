@@ -32,7 +32,18 @@ public class DisciplinaDAO {
 		return lista;
 	}
 
-
+	public void inserir(Disciplina disciplina) throws SQLException {
+		Connection conexao = FabricaDeConexao.getConnection();
+		String sql = "insert into disciplina" + "(nome, professor, periodo, codigo_sala_classroom )" + " values (?,?,?,?)";
+		PreparedStatement stmt = conexao.prepareStatement(sql);
+		stmt.setString(1, disciplina.getNome());
+		stmt.setString(2, disciplina.getProfessor());
+		stmt.setInt(3, disciplina.getPeriodo());
+		stmt.setString(4, disciplina.getCodigo());
+		stmt.execute();
+		stmt.close();
+		conexao.close();
+	}
 
 
 }
